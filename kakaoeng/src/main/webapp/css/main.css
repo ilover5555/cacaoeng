@@ -1,0 +1,92 @@
+@charset "utf-8";
+#container ul {
+	list-style: none;
+	margin: 0px; 
+	text-align: center;
+}
+#container ul li {
+	float: left;
+}
+#container ul li:last-child {
+   clear:right;
+}
+#banner01 {
+	width: 713px;
+	height: 395px;
+	float: left;
+}
+#banner01_r {
+	width: 268px;
+	height: 395px;
+	float: right;
+}
+#login {
+	background-color: #f7f7f7;
+	margin-bottom: 15px;
+	padding: 13px 10px 13px 10px;
+	border: 1px solid #efeeee;
+}
+#line02 { 
+	padding-top: 20px;
+	padding-bottom:10px;
+}
+#loginId {
+	width: 236px;
+	height: 24px;
+	background-image: url(../main/images/tb_login_id.gif);
+	background-repeat: no-repeat;
+	border: 0;
+	margin: 3px 0 3px 0;
+	padding-left: 60px;
+}
+#loginpwd {
+	width: 236px;
+	height: 24px;
+	background-image: url(../main/images/tb_login_pwd.gif);
+	background-repeat: no-repeat;
+	border: 0;
+	margin: 3px 0 3px 0;
+	padding-left: 60px;
+}
+
+#banner02{ width:730px; float: left; height:360px; }
+#banner02_r {
+	float: right;
+	width: 268px;
+	height:360px;
+}
+#banner02 li { padding:0 7px 13px 0; float:left; }
+#notice { border:1px solid #e8e8e8; }
+#notice_t {  background-color:#f0f0f0; height:39px; }
+#notice_l { background-color:#fff; padding-top:5px; padding-left:10px; height:120px; } 
+#notice_l tr { height:22px; }
+#notice_l a{
+	background-image: url(../main/images/notice-dot.png);
+	background-repeat: no-repeat;
+	background-position: left 50%;
+	padding: 0 0 0 10px;
+	font-size: 11px;
+	color: #747474;
+	display: block;  
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+	width:170px;
+	white-space: nowrap;	
+}
+ 
+#notice_l .date { 
+	text-align: right;
+	color: #747474;
+	font-size: 11px; 
+    white-space: nowrap; 
+}
+#banner03{ height:102px; }
+#customer-center { clear:both ; padding-top: 13px ;} 
+.clsBannerScreen {overflow: hidden;position: relative; border:0 solid #e1e1e1; cursor:pointer; clear:both;}
+.clsBannerScreen .images {position:absolute; display:none; }
+.clsBannerButton { cursor:pointer;border-bottom:1px solid #e1e1e1;}
+.clsBannerButton li {float:left;border-right:0;padding:0;}
+.clsBannerButton li.fir {border-left:1px solid #000;}
+.clsBannerButton li.labelOverClass {font-weight:bold;}

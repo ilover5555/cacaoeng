@@ -1,0 +1,341 @@
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>카카오영어-교과과정</title>
+<?php include("../include/resource.html"); ?>
+<link href="../common/css/common.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+#books {
+	text-align: center;
+	margin-top : 100px;
+}
+hr.bookline {
+	display: block;
+	height: 50px;
+	margin: 0;
+	border: 0;
+	background-image: url(images/book_line.gif);
+	background-repeat: repeat-x
+}
+.book {
+	margin-bottom: 26px;
+}
+#books .title {
+	margin-bottom: 40px;
+	margin-top: 40px;
+}
+hr.titleline {
+	display: block;
+	height: 26px;
+	margin: 32px 0 0 0;
+	border: 0;
+	background-image: url(images/book_title_bar.png);
+	background-repeat: repeat-x
+}
+.book .img {
+	padding-left: 94px;
+	padding-right: 54px;
+}
+.book .btns {
+	padding-left: 256px;
+}
+.section {
+	text-align: center;
+}
+</style>
+<script type="text/javascript">
+$(function() {
+        $("map area").click(function() {
+			var target = this.href;
+			var id = target.substring(target.indexOf("#"));
+            var position = $(id).offset();
+            $("html, body").animate({ scrollTop: position.top - 20 }, "slow");
+        });
+});
+</script>
+</head>
+<body>
+ <?php include("../include/header.html"); ?>
+  <div id="schedule" class="section">
+    <table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td colspan="2"><img src="images/tbl_header.png" width="1001" height="37" alt="" /></td>
+      </tr>
+      <tr>
+        <td><img src="images/tbl_sec_01.png" width="152" height="220" alt="ESL Course Books" /></td>
+        <td><a href="#book01"><img src="images/tbl_list_01.png" alt="" width="849" height="220" usemap="#map_01" border="0" /></a></td>
+      </tr>
+      <tr>
+        <td><img src="images/tbl_sec_02.png" width="152" height="131" alt="Free Talking" /></td>
+        <td><a href="#book02"><img src="images/tbl_list_02.png" alt="" width="849" height="131" usemap="#map_02" border="0" /></a></td>
+      </tr>
+      <tr>
+        <td><img src="images/tbl_sec_03.png" width="152" height="65" alt="미국초등교과서" /></td>
+        <td><a href="#book03"><img src="images/tbl_list_03.png" alt="" width="849" height="65" usemap="#map_03" border="0" /></a></td>
+      </tr>
+      <tr>
+        <td><img src="images/tbl_sec_04.png" width="152" height="107" alt="Business" /></td>
+        <td><a href="#book04"><img src="images/tbl_list_04.png" alt="" width="849" height="107" usemap="#map_04" border="0" /></a></td>
+      </tr>
+      <tr>
+        <td><img src="images/tbl_sec_05.png" width="152" height="132" alt="시험대비" /></td>
+        <td><a href="#book05"><img src="images/tbl_list_05.png" alt="" width="849" height="132" usemap="#map_05" border="0" /></a></td>
+      </tr>
+    </table>
+  </div>
+  <div id="books" class="section">
+    <div id="book01">
+      <div class="title"> <img src="images/book_title_01.png" width="480" height="60" alt="ESL Course books"> <img src="images/book_01_summery.png" width="1001" height="133" alt="">
+        <hr class="titleline"/>
+      </div>
+      <table width="1001" class="book" id="book01_01">
+        <tr>
+          <td class="img"><img src="images/book_01_img_01.jpg" width="213" height="278" alt=""></td>
+          <td><table>
+              <tr>
+                <td><img src="images/book_01_view_01.png" width="639" height="237" alt="Let's go 시리즈"></td>
+              </tr>
+              <tr>
+                <td class="btns"><a href="#"><img src="images/btn_req.png" width="113" height="41" alt=""></a> <a href="#"><img src="images/btn_preview.png" width="113" height="41" alt=""></a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <hr class="bookline"/>
+      <table width="1001" class="book" id="book01_02">
+        <tr>
+          <td class="img"><img src="images/book_01_img_02.jpg" width="213" height="278" alt=""></td>
+          <td><table>
+              <tr>
+                <td><img src="images/book_01_view_02.png" width="639" height="237" alt="National Geographic Our World 시리즈"></td>
+              </tr>
+              <tr>
+                <td class="btns"><a href="#"><img src="images/btn_req.png" width="113" height="41" alt=""></a> <a href="#"><img src="images/btn_preview.png" width="113" height="41" alt=""></a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <hr class="bookline"/>
+      <table width="1001" class="book" id="book01_03">
+        <tr>
+          <td class="img"><img src="images/book_01_img_03.jpg" width="213" height="278" alt=""></td>
+          <td><table>
+              <tr>
+                <td><img src="images/book_01_view_03.png" width="639" height="237" alt="Backpack 시리즈"></td>
+              </tr>
+              <tr>
+                <td class="btns"><a href="#"><img src="images/btn_req.png" width="113" height="41" alt=""></a> <a href="#"><img src="images/btn_preview.png" width="113" height="41" alt=""></a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <hr class="bookline"/>
+      <table width="1001" class="book"  id="book01_04">
+        <tr>
+          <td class="img"><img src="images/book_01_img_04.jpg" width="213" height="278" alt=""></td>
+          <td><table>
+              <tr>
+                <td><img src="images/book_01_view_04.png" width="639" height="234" alt="Side by Side 시리즈"></td>
+              </tr>
+              <tr>
+                <td class="btns"><a href="#"><img src="images/btn_req.png" width="113" height="41" alt=""></a> <a href="#"><img src="images/btn_preview.png" width="113" height="41" alt=""></a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <hr class="bookline"/>
+      <table width="1001" class="book"  id="book01_05">
+        <tr>
+          <td class="img"><img src="images/book_01_img_05.jpg" width="213" height="278" alt=""></td>
+          <td><table>
+              <tr>
+                <td><img src="images/book_01_view_05.png" width="639" height="234" alt="Interchange 시리즈"></td>
+              </tr>
+              <tr>
+                <td class="btns"><a href="#"><img src="images/btn_req.png" width="113" height="41" alt=""></a> <a href="#"><img src="images/btn_preview.png" width="113" height="41" alt=""></a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <hr class="bookline"/>
+      <table width="1001" class="book"  id="book01_06">
+        <tr>
+          <td class="img"><img src="images/book_01_img_06.jpg" width="213" height="278" alt=""></td>
+          <td><table>
+              <tr>
+                <td><img src="images/book_01_view_06.png" width="639" height="237" alt="American Headway 시리즈"></td>
+              </tr>
+              <tr>
+                <td class="btns"><a href="#"><img src="images/btn_req.png" width="113" height="41" alt=""></a> <a href="#"><img src="images/btn_preview.png" width="113" height="41" alt=""></a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <hr class="bookline"/>
+    </div>
+    <div id="book02">
+      <div class="title"> <img src="images/book_title_02.png" width="480" height="60" alt="Discussion (Free Talking)">
+        <hr class="titleline"/>
+      </div>
+      <table width="1001" class="book" id="book02_01">
+        <tr>
+          <td class="img"><img src="images/book_02_img_01.jpg" width="213" height="278" alt=""></td>
+          <td><table>
+              <tr>
+                <td><img src="images/book_02_view_01.png" width="639" height="237" alt=""></td>
+              </tr>
+              <tr>
+                <td class="btns"><a href="#"><img src="images/btn_req.png" width="113" height="41" alt=""></a> <a href="#"><img src="images/btn_preview.png" width="113" height="41" alt=""></a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <hr class="bookline"/>
+      <table width="1001" class="book" id="book02_02">
+        <tr>
+          <td class="img"><img src="images/book_02_img_02.jpg" width="213" height="278" alt=""></td>
+          <td><table>
+              <tr>
+                <td><img src="images/book_02_view_02.png" width="639" height="237" alt=""></td>
+              </tr>
+              <tr>
+                <td class="btns"><a href="#"><img src="images/btn_req.png" width="113" height="41" alt=""></a> <a href="#"><img src="images/btn_preview.png" width="113" height="41" alt=""></a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <hr class="bookline"/>
+      <table width="1001" class="book" id="book02_03">
+        <tr>
+          <td class="img"><img src="images/book_02_img_03.jpg" width="213" height="278" alt=""></td>
+          <td><table>
+              <tr>
+                <td><img src="images/book_02_view_03.png" width="639" height="237" alt=""></td>
+              </tr>
+              <tr>
+                <td class="btns"><a href="#"><img src="images/btn_req.png" width="113" height="41" alt=""></a> <a href="#"><img src="images/btn_preview.png" width="113" height="41" alt=""></a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <hr class="bookline"/>
+    </div>
+    <div id="book03">
+      <div class="title"> <img src="images/book_title_03.png" width="480" height="60" alt="">
+        <hr class="titleline"/>
+      </div>
+      <table width="1001" class="book" id="book03_01">
+        <tr>
+          <td class="img"><img src="images/book_03_img_01.jpg" width="213" height="278" alt=""></td>
+          <td><table>
+              <tr>
+                <td><img src="images/book_03_view_01.png" width="639" height="237" alt=""></td>
+              </tr>
+              <tr>
+                <td class="btns"><a href="#"><img src="images/btn_req.png" width="113" height="41" alt=""></a> <a href="#"><img src="images/btn_preview.png" width="113" height="41" alt=""></a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <hr class="bookline"/>
+    </div>
+    <div id="book04">
+      <div class="title"> <img src="images/book_title_04.png" width="480" height="60" alt="Business">
+        <hr class="titleline"/>
+      </div>
+      <table width="1001" class="book" id="book04_01">
+        <tr>
+          <td class="img"><img src="images/book_04_img_01.jpg" width="213" height="278" alt="Business Venture"></td>
+          <td><table>
+              <tr>
+                <td><img src="images/book_04_view_01.png" width="639" height="237" alt="Business Venture 시리즈"></td>
+              </tr>
+              <tr>
+                <td class="btns"><a href="#"><img src="images/btn_req.png" width="113" height="41" alt=""></a> <a href="#"><img src="images/btn_preview.png" width="113" height="41" alt=""></a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <hr class="bookline"/>
+      <table width="1001" class="book" id="book04_02">
+        <tr>
+          <td class="img"><img src="images/book_04_img_02.jpg" width="213" height="278" alt=""></td>
+          <td><table>
+              <tr>
+                <td><img src="images/book_04_view_02.png" width="639" height="237" alt="English for Presentations"></td>
+              </tr>
+              <tr>
+                <td class="btns"><a href="#"><img src="images/btn_req.png" width="113" height="41" alt=""></a> <a href="#"><img src="images/btn_preview.png" width="113" height="41" alt=""></a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <hr class="bookline"/>
+      <table width="1001" class="book" id="book04_03">
+        <tr>
+          <td class="img"><img src="images/book_04_img_03.jpg" width="213" height="278" alt="301 Smart answers to Tough interview questions"></td>
+          <td><table>
+              <tr>
+                <td><img src="images/book_04_view_03.png" width="639" height="237" alt="301 Smart answers to Tough interview questions"></td>
+              </tr>
+              <tr>
+                <td class="btns"><a href="#"><img src="images/btn_req.png" width="113" height="41" alt=""></a> <a href="#"><img src="images/btn_preview.png" width="113" height="41" alt=""></a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <hr class="bookline"/>
+    </div>
+    <div id="book03">
+      <div class="title"> <img src="images/book_title_05.png" width="480" height="60" alt="Examination &amp; Grammar">
+        <hr class="titleline"/>
+      </div>
+      <table width="1001" class="book" id="book05_01">
+        <tr>
+          <td class="img"><img src="images/book_05_img_01.jpg" width="213" height="278" alt="Basic Grammar in Use"></td>
+          <td><table>
+              <tr>
+                <td><img src="images/book_05_view_01.png" width="639" height="237" alt="Grammar in use 시리즈"></td>
+              </tr>
+              <tr>
+                <td class="btns"><a href="#"><img src="images/btn_req.png" width="113" height="41" alt=""></a> <a href="#"><img src="images/btn_preview.png" width="113" height="41" alt=""></a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <hr class="bookline"/>
+    </div>
+  </div>
+	<map name="map_01">
+	  <area shape="rect" coords="1,8,304,30" href="#book01_01" alt="Let's Go  (1~6)">
+	  <area shape="rect" coords="1,37,363,59" href="#book01_03" alt="Back Pack (1~6)">
+	  <area shape="rect" coords="59,67,364,90" href="#book01_03" alt="National Geographic Our World (1~6)">
+	  <area shape="rect" coords="120,98,606,121" href="#book01_04" alt="Side by Side (1~4)">
+	  <area shape="rect" coords="313,129,727,152" href="#book01" alt="Exploring english (1~6)">
+	  <area shape="rect" coords="417,158,848,181" href="#book01_05" alt="Interchange (1~3)">
+	  <area shape="rect" coords="417,187,847,209" href="#book01_06">
+	</map>
+	<map name="map_02">
+	  <area shape="rect" coords="242,19,674,44" href="#book02_02" alt="Small Group Discussion">
+	  <area shape="rect" coords="242,51,727,75" href="#book02_01" alt="Active english Discussion (1~2)">
+	  <area shape="rect" coords="242,83,728,106" href="#book02_03" alt="Can you Believe it? (1~3)">
+	</map>
+	<map name="map_03">
+	  <area shape="rect" coords="120,22,607,46" href="#book03_01" alt="American Textbook Wonder Series (1~6)">
+	</map>
+	<map name="map_04">
+	  <area shape="rect" coords="242,12,728,36" href="#book04_01" alt="Business Venture (1~2)">
+	  <area shape="rect" coords="286,42,772,65" href="#book04_02" alt="English for Persentations">
+	  <area shape="rect" coords="361,72,849,95" href="#book04_03" alt="301 Smart Answers to Interview Question">
+	</map>
+	<map name="map_05">
+	  <area shape="rect" coords="119,30,426,53" href="#book05_01" alt="Grammar in Use (Basic)">
+	  <area shape="rect" coords="423,61,728,86" href="#book05_01" alt="Grammar In Use (Intermediate)">
+	  <area shape="rect" coords="484,93,850,117" href="#" target="#book05_01" alt="ILETS / TOFEL / TOIEC">
+	</map>
+ <?php include("../include/footer.html"); ?>
+</body>
+</html>

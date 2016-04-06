@@ -1,0 +1,271 @@
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>카카오영어</title> 
+<link href="css/main.css" rel="stylesheet" type="text/css"> 
+</head> 
+<!--[if lt IE 9]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.banner.js"></script>
+<script type="text/javascript" src="js/jquery.preload.min.js"></script> 
+<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="js/main.js"></script> 
+<body>
+<div id="wrap">
+  <div id="header">
+		<div id="top-bg-off"><img src="images/main/top_bg_01.jpg" width="1000" height="156" alt="카카오영어 로고배경"></div>
+		<div class="header-menu">
+          <ul>
+               <li><a href="#"><img src="images/main/top_menu_01_off.png" width="145" height="46" alt="카카오영어"></a></li>
+               <li><a href="#"><img src="images/main/top_menu_02_off.png" width="142" height="46" alt="학습방법"></a></li>
+               <li><span class="text-yellow"><a href="#"><img src="images/main/top_menu_03_off.png" width="143" height="46" alt="교과과정"></a></span></li>
+               <li><a href="#"><img src="images/main/top_menu_04_off.png" width="143" height="46" alt="수강안내"></a></li>
+                 <li><a href="#"><img src="images/main/top_menu_05_off.png" width="142" height="46" alt="내강의실"></a></li>
+               <li class="text-yellow"><a href="#"><img src="images/main/top_menu_06_off.png" width="142" height="46" alt="레벨테스트"></a></li>               
+               <li><a href="#"><img src="images/main/top_menu_07_off.png" width="143" height="46" alt="고객센터"></a></li>
+          </ul> 
+		  <div class="sub-menu" id="top-bg-on"> 
+				<div class="top_bg_on_logo"></div>
+				<table width="1000" id="top-sub-menu" >
+					<tr valign="top">
+					  <td width="15"></td>
+					  <td><table>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_01_01_off.png" width="120" height="23" alt="카카오영어는?"></a></td>
+						</tr>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_01_02_off.png" width="120" height="23" alt="1타강사진"></a></td>
+						</tr>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_01_03_off.png" width="120" height="23" alt="스마트예약시스템"></a></td>
+						</tr>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_01_04_off.png" width="120" height="23" alt="검증된교과과정"></a></td>
+						</tr>
+					  </table></td>
+					  <td width="18"></td>
+					  <td><table>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_02_01_off.png" width="120" height="23" alt="화상영어란?"></a></td>
+						</tr>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_02_02_off.png" width="120" height="23" alt="스카이프소개"></a></td>
+						</tr>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_02_03_off.png" width="120" height="23" alt="스마트폰지원"></a></td>
+						</tr>
+						<tr>
+						  <td></td>
+						</tr>
+					  </table></td>
+					  <td width="23"></td>
+					  <td><table>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_03_01_off.png" width="120" height="23" alt="커리큘럼"></a></td>
+						</tr>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_03_02_off.png" width="120" height="23" alt="교재소개"></a></td>
+						</tr>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_03_03_off.png" width="120" height="23" alt="선생님소개"></a></td>
+						</tr>
+						<tr>
+						  <td></td>
+						</tr>
+					  </table></td>
+					  <td width="23"></td>
+					  <td><table>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_04_01_off.png" width="120" height="23" alt="예약방법"></a></td>
+						</tr>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_04_02_off.png" width="120" height="23" alt="수강료안내"></a></td>
+						</tr>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_04_03_off.png" width="120" height="23" alt="수강신청"></a></td>
+						</tr>
+						<tr>
+						  <td></td>
+						</tr>
+					  </table></td>
+					  <td width="23"></td>
+					  <td><table>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_05_01_off.png" width="118" height="23" alt="학습지원"></a></td>
+						</tr>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_05_02_off.png" width="120" height="23" alt="학습일정표"></a></td>
+						</tr>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_05_03_off.png" width="118" height="23" alt="내수강내역"></a></td>
+						</tr>
+						<tr>
+						  <td><img src="images/main/top_menu_05_04_off.png" width="118" height="23" alt="내정보관리"></td>
+						</tr>
+					  </table></td>
+					  <td width="24"></td>
+					  <td><table>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_06_01_off.png" width="120" height="23" alt="테스트과정"></a></td>
+						</tr>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_06_02_off.png" width="120" height="23" alt="테스트신청"></a></td>
+						</tr>
+						<tr>
+						  <td></td>
+						</tr>
+						<tr>
+						  <td></td>
+						</tr>
+					  </table></td>
+					  <td width="23"></td>
+					  <td><table>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_07_01_off.png" width="120" height="23" alt="공지사항"></a></td>
+						</tr>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_07_02_off.png" width="120" height="23" alt="1:1문의"></a></td>
+						</tr>
+						<tr>
+						  <td><a href="#"><img src="images/main/top_menu_07_03_off.png" width="120" height="23" alt="수강후기"></a></td>
+						</tr>
+						<tr>
+						  <td></td>
+						</tr>
+					  </table></td>
+					  <td width="13" rowspan="5"></td>
+					</tr>           
+				</table> 
+			</div>  
+		</div>	
+    </div>
+    <div id="container">     	  	
+   	 <div class="section">     
+   	   <div id="banner01">
+		   <div class="clsBannerScreen">
+				<div class="images" style="display:block"><img src="images/main/rolling_banner_01.jpg" width="713" height="358" alt="불편한진실"> </div>
+				<div class="images"><img src="images/main/rolling_banner_02.jpg" width="713" height="358" alt="하늘과 땅사이"></div>
+				<div class="images"><img src="images/main/rolling_banner_03.jpg" width="713" height="358" alt="스마트매칭시스템"></div>
+				<div class="images"><img src="images/main/rolling_banner_04.jpg" width="713" height="358" alt="월드클래스교재"></div>
+				<div class="images"><img src="images/main/rolling_banner_05.jpg" width="713" height="358" alt="카카오영어의약속"></div>
+		 </div>
+         <ul class="clsBannerButton">
+			<li><a href="#"><img class="fir" oversrc="images/main/rolling_menu_on_01.png" outsrc="images/main/rolling_menu_off_01.png" width="143" height="37" alt="불편한진실"></a></li>
+			<li><a href="#"><img oversrc="images/main/rolling_menu_on_02.png" outsrc="images/main/rolling_menu_off_02.png" width="143" height="37" alt="하늘과땅차이"></a></li>
+			<li><a href="#"><img oversrc="images/main/rolling_menu_on_03.png" outsrc="images/main/rolling_menu_off_03.png" width="143" height="37" alt="스마트매칭시스템"></a></li>
+			<li><a href="#"><img oversrc="images/main/rolling_menu_on_04.png" outsrc="images/main/rolling_menu_off_04.png" width="142" height="37" alt="월드클래스교재"></a></li>
+			<li><a href="#"><img oversrc="images/main/rolling_menu_on_05.png" outsrc="images/main/rolling_menu_off_05.png" width="142" height="37" alt="카카오영어의 약속"></a></li>
+           </ul>
+         </div>       
+    	<div id="banner01_r"> 
+        	<div id="login">
+            <table cellpadding="0" cellspacing="0">
+              <tr>
+                <td colspan="2"><input type="text" id="loginId" name="loginId"></td>
+              </tr>
+              <tr>
+                <td colspan="2"><input type="password" id="loginpwd" name="loginpwd">
+                </td>
+              </tr>
+              <tr>
+                <td height="24" colspan="2"><img src="images/main/btn_join.gif" width="48" height="15" alt=""><img src="images/main/btn_pwd_search.gif" width="92" height="15" alt=""></td>
+              </tr>
+              <tr>
+                <td height="5" colspan="2"></td>
+              </tr>
+              <tr>
+                <td colspan="2"><a href="#"><img src="images/main/btn_login.gif" width="114" height="31" alt="로그인"></a>				
+                <a href="#"><img src="images/main/btn_login_naver.gif" width="114" height="31" alt="네이버로그인"></a></td>
+              </tr>
+              <tr>
+                <td height="18" colspan="2"></td>
+              </tr>
+              <tr>
+                <td colspan="2"><a href="#"><img src="images/main/btn_my_course.jpg" width="236" height="32" alt="나의강의실"></a></td>
+              </tr>
+            </table>
+            
+            </div>
+            <div> <a href="#"><img src="images/main/banner_course_regist.png" width="268" height="183" alt="수강신청"></a>
+            </div>
+        </div> 
+        </div>
+   	  <div class="section" id="line02">
+       	<img src="images/main/section_line_01.gif" width="1000" height="4" alt=""></td>
+      </div>            
+       <div class="section">  
+         <ul id="banner02"> 
+             <li> <a href="#"><img src="images/main/banner_02_1.gif" width="354" height="166" alt="화상영어 1타 선생님들"></a></li>
+            <li> <a href="#"><img src="images/main/banner_02_2.gif" width="354" height="166" alt="수강시간 선택의 자유"></a></li>
+            <li> <a href="#"><img src="images/main/banner_02_3.gif" width="354" height="166" alt="완벽히 검증된 교재사용"></a></li>
+            <li> <a href="#"><img src="images/main/banner_02_4.gif" width="354" height="166" alt="선생님 정보 100%공개"></a></li>
+           </ul> 
+         
+         <div id="banner02_r"> 
+       	   <div id="notice">
+       	      <table width="100%" id="notice_t">
+              <tr>
+              <td><img src="images/main/notice_title.gif" width="73" height="21" alt="공지사항"></td>
+              <td align="right"><a href="#"><img src="images/main/notice_more.gif" width="52" height="16" alt="공지사항 더보기"></a></td>
+              </tr>              
+              </table> 
+            <div id="notice_l">
+            <table width="250">
+            <tr>
+                <td class="subject"><a href="#">카카오영어 공지사항입니다. 화이팅입니다.</a> </td> 
+                <td class="date">2016-01-06</td>
+            </tr> 
+             <tr>
+                <td class="subject"><a href="#">카카오영어 공지사항입니다. 화이팅입니다.</a> </td> 
+                <td class="date">2016-01-06</td>
+            </tr> 
+             <tr>
+                <td class="subject"><a href="#">카카오영어 공지사항입니다. 화이팅입니다.</a> </td> 
+                <td class="date">2016-01-06</td>
+            </tr> 
+             <tr>
+                <td class="subject"><a href="#">카카오영어 공지사항입니다. 화이팅입니다.</a> </td> 
+                <td class="date">2016-01-06</td>
+            </tr> 
+             <tr>
+                <td class="subject"><a href="#">카카오영어 공지사항입니다. 화이팅입니다.</a> </td> 
+                <td class="date">2016-01-06</td>
+            </tr> 
+            </table> 
+            </div> 
+           </div>
+           <div id="customer-center">
+         	<img src="images/main/banner_customer_center.gif" width="268" height="166" alt="고객센터">         
+         </div>
+         </div>  
+         
+      </div>
+         
+        <div class="section">  
+          <div id="banner03">  
+             <ul >
+                <li><a href="#"><img src="images/main/banner_03_1.png" width="250" height="102" alt=""></a></li>
+                <li><a href="#"><img src="images/main/banner_03_2.png" width="251" height="102" alt=""></a></li>
+                <li><a href="#"><img src="images/main/banner_03_3.png" width="250" height="102" alt=""></a></li>
+                <li><a href="#"><img src="images/main/banner_03_4.png" width="249" height="102" alt=""></a></li>
+            </ul>
+          </div>
+        </div>  
+  </div>
+  <div id="footer">
+     <div class="footer-menu">       
+       <a href="#">회사소개</a> |<a href="#">제휴문의</a> |<a href="#">이용약관</a>
+        | <a href="#"><span class="yellow">개인정보취급방법</span></a> |  <a href="#">고객센터</a>
+    </div>
+    <div class="footer-copyright">
+       <img src="images/main/copyright.gif" width="1000" height="102" alt="Copyright">
+    </div>
+    </div>
+</div> 
+</body>
+</html>

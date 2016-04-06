@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+
+	<context:annotation-config />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost/englishmanager?characterEncoding=utf8" />
+		<property name="username" value="root" />
+		<property name="password" value="apmsetup" />
+		<property name="maxTotal" value="10" />
+		<property name="maxWaitMillis" value="10000" />
+		<property name="maxIdle" value="3"></property>
+		<property name="removeAbandonedTimeout" value="20"></property>
+		<property name="defaultAutoCommit" value="false" /> 
+	</bean>
+
+	<bean id="teacherDAO" class="Kakao.kakaoeng.dao.TeacherDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="classTimeDAO" class="Kakao.kakaoeng.dao.ClassTimeDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="classTimeUsageLogDAO" class="Kakao.kakaoeng.dao.ClassTimeUsageLogDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="rebookTransaction" isolation="SERIALIZABLE" propagation="REQUIRED"/>
+			<tx:method name="book" isolation="SERIALIZABLE" propagation="MANDATORY" />
+			<tx:method name="bookCheck" isolation="REPEATABLE_READ" read-only="true" propagation="REQUIRED"/>
+			<tx:method name="bookOneClassTime" isolation="SERIALIZABLE" propagation="MANDATORY"/>
+			<tx:method name="bookInterface" isolation="SERIALIZABLE" propagation="MANDATORY" rollback-for="ConcurrentBookException"/>
+			<tx:method name="bookOneClassTimeInterface" isolation="SERIALIZABLE" propagation="MANDATORY"/>
+			<tx:method name="bookTransaction" isolation="SERIALIZABLE" propagation="REQUIRED"/>
+			<tx:method name="bookLevelTestTransaction" isolation="SERIALIZABLE" propagation="REQUIRED"/>
+			<tx:method name="cancelTransaction" isolation="SERIALIZABLE" propagation="REQUIRED"/>
+			<tx:method name="removeTransaction" isolation="SERIALIZABLE" propagation="REQUIRED"/>
+			<tx:method name="registerClassLogTransaction" isolation="SERIALIZABLE" propagation="REQUIRED"/>
+			<tx:method name="registerHolidayTransaction" isolation="SERIALIZABLE" propagation="REQUIRED"/>
+			<tx:method name="registerTransaction" isolation="SERIALIZABLE" propagation="MANDATORY" />
+			<tx:method name="finishLectureTransaction" isolation="SERIALIZABLE" propagation="MANDATORY" />
+			<tx:method name="subReaminTransaction" isolation="SERIALIZABLE" propagation="MANDATORY" />
+			<tx:method name="deleteByClassTimeIdTransaction" isolation="SERIALIZABLE" propagation="REQUIRED" />
+			<tx:method name="cancelTransaction" isolation="SERIALIZABLE" propagation="REQUIRED"/>
+			<tx:method name="setParentForNewOneClassTransaction" isolation="SERIALIZABLE" propagation="REQUIRED" />
+			<tx:method name="procrastinateByIdTransaction" isolation="SERIALIZABLE" propagation="REQUIRED" />
+			<tx:method name="getOneClassById" isolation="READ_UNCOMMITTED" propagation="REQUIRED" />
+			<tx:method name="getOneClassListGroupedByLectureIdTransaction" isolation="READ_UNCOMMITTED" propagation="REQUIRED" />
+			<tx:method name="getClassLogListByOneClassTransaction" isolation="READ_UNCOMMITTED" propagation="REQUIRED" />
+			<tx:method name="setProcrastinateTransaction" isolation="SERIALIZABLE" propagation="REQUIRED" />
+			<tx:method name="setFullClassTransaction" isolation="SERIALIZABLE" propagation="REQUIRED" />
+			<tx:method name="checkClassTimeCanBeUsedStateTransaction" isolation="READ_UNCOMMITTED" propagation="REQUIRED" />
+			<tx:method name="getLectureByIdTransaction" isolation="READ_UNCOMMITTED" propagation="REQUIRED" />
+			<tx:method name="getAllOnGoingLectureListTransaction" isolation="READ_UNCOMMITTED" propagation="REQUIRED" />
+			<tx:method name="getClassLogListByOneClassTransaction" isolation="READ_UNCOMMITTED" propagation="REQUIRED" />
+			<tx:method name="getOneClassListGroupedByParentTransaction" isolation="READ_UNCOMMITTED" propagation="REQUIRED" />
+			<tx:method name="deleteByClassLogIdTransaction" isolation="SERIALIZABLE" propagation="REQUIRED" />
+			<tx:method name="selectRangeTransaction" isolation="READ_UNCOMMITTED" propagation="REQUIRED" />
+			<tx:method name="deleteByClassTimeUsageLogIdTransaction" isolation="SERIALIZABLE" propagation="REQUIRED" />
+			<tx:method name="deleteTransaction" isolation="SERIALIZABLE" propagation="REQUIRED" />
+			<tx:method name="getClassLogByOneClassTransaction" isolation="READ_UNCOMMITTED" propagation="REQUIRED" />
+			<tx:method name="updateProcrastinateTransaction" isolation="SERIALIZABLE" propagation="REQUIRED" />
+			<tx:method name="getByIdTransaction" isolation="READ_COMMITTED" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut expression="execution(* book*(..))" id="txPointcut"/>
+		<aop:pointcut expression="execution(* *Transaction(..))" id="txPointcut2"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut2" />
+	</aop:config>
+	<bean id="bookManager" class="Kakao.kakaoeng.BookManager"></bean>
+	<bean id="classLogManager" class="Kakao.kakaoeng.ClassLogManager"></bean>
+	<bean id="purchaseDAO" class="Kakao.kakaoeng.dao.PurchaseDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="lectureDAO" class="Kakao.kakaoeng.dao.LectureDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="oneClassDAO" class="Kakao.kakaoeng.dao.OneClassDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="classLogDAO" class="Kakao.kakaoeng.dao.ClassLogDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="studentDAO" class="Kakao.kakaoeng.dao.StudentDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="adminDAO" class="Kakao.kakaoeng.dao.AdminDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="userDAO" class="Kakao.kakaoeng.dao.UserDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="adminBoardDAO" class="Kakao.kakaoeng.dao.BoardDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="boardName" value="admin"></property>
+	</bean>
+	<bean id="studentBoardDAO" class="Kakao.kakaoeng.dao.BoardDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="boardName" value="student"></property>
+	</bean>
+	<bean id="holidayDAO" class="Kakao.kakaoeng.dao.HolidayDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<bean id="bookDAO" class="Kakao.kakaoeng.dao.BookDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="payDAO" class="Kakao.kakaoeng.dao.PayDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="environDAO" class="Kakao.kakaoeng.dao.EnvironDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="removeAllPurchaseManager"
+		class="Kakao.kakaoeng.RemoveAllPurchaseManager">
+	</bean>
+	<bean id="epilogueBoardDAO" class="Kakao.kakaoeng.dao.BoardDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="boardName" value="epilogue"></property>
+	</bean>
+	<bean id="notifyBoardDAO" class="Kakao.kakaoeng.dao.BoardDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="boardName" value="notify"></property>
+	</bean>
+	<bean id="rebookManager" class="Kakao.kakaoeng.RebookManager"></bean>
+	<bean id="freeBoardDAO" class="Kakao.kakaoeng.dao.BoardDAOImpl">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="boardName" value="free"></property>
+	</bean>
+</beans>
